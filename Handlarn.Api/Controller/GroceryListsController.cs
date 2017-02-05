@@ -29,9 +29,9 @@ namespace Handlarn.Api.Controllers
         [HttpGet]
         public IActionResult GetGroceryLists()
         {
-            var groceryLists = _groceryListQueries.GetGroceryLists();            
+            var groceryLists = _groceryListQueries.GetGroceryLists();
 
-            return Ok(groceryLists);
+            return Ok(groceryLists.Select(g => g.ToContract($"/grocerylists/{g.Id}/items")));
         }
 
         [HttpGet("{id}")]

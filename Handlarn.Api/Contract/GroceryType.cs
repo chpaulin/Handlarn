@@ -1,4 +1,4 @@
-﻿namespace Handlarn.Api.Contracts
+﻿namespace Handlarn.Api.Contract
 {
     public class GroceryType
     {

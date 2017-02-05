@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Handlarn.Api.Contracts
+namespace Handlarn.Api.Contract
 {
     public class GroceryList
     {

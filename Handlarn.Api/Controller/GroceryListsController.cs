@@ -29,9 +29,7 @@ namespace Handlarn.Api.Controllers
         [HttpGet]
         public IActionResult GetGroceryLists()
         {
-            var groceryLists = _groceryListQueries.GetGroceryLists();
-
-            
+            var groceryLists = _groceryListQueries.GetGroceryLists();            
 
             return Ok(groceryLists);
         }
@@ -41,7 +39,7 @@ namespace Handlarn.Api.Controllers
         {
             var groceryList = _groceryListQueries.GetGroceryList(id);
 
-            return Ok(groceryList);
+            return Ok(groceryList.ToContract($"/grocerylists/{id}/items"));
 
         }
 

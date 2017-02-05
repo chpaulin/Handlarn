@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Command\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Handlarn.DataAccess\Handlarn.DataAccess.csproj" />
+    <ProjectReference Include="..\Handlarn.Domain\Handlarn.Domain.csproj" />
+  </ItemGroup>
+</Project>

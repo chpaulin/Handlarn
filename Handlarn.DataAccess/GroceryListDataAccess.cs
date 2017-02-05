@@ -18,6 +18,19 @@ namespace Handlarn.DataAccess
             };
         }
 
+        public IEnumerable<GroceryListItem> GetGroceryListItems(int id)
+        {
+            return new []{
+                new GroceryListItem
+                {
+                    Count = 1,
+                    GroceryTypeId = 1,
+                    Id = 1,
+                    Name = "Mjölk"
+                }
+            };
+        }
+
         public IEnumerable<GroceryList> GetGroceryLists()
         {
             return new[] { GetGroceryList(1) };

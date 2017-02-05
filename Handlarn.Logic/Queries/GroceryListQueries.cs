@@ -29,5 +29,12 @@ namespace Handlarn.Logic.Queries
 
             return groceryList;
         }
+
+        public IEnumerable<GroceryListItem> GetGroceryListItems(int id)
+        {
+            var groceryListItems = _groceryListDataAccess.GetGroceryListItems(id);
+
+            return groceryListItems;
+        }
     }
 }

@@ -16,5 +16,16 @@ namespace Handlarn.Api
                 Items = new Uri(itemsUrl, UriKind.Relative)
             };
         }
+
+        public static Contract.GroceryListItem ToContract(this Domain.GroceryListItem groceryListItem, string groceryTypesUrl)
+        {
+            return new Contract.GroceryListItem
+            {
+                Id = groceryListItem.Id,
+                Name = groceryListItem.Name,
+                Count = groceryListItem.Count,
+                GroceryType = new Uri($"{groceryTypesUrl}/{groceryListItem.GroceryTypeId}", UriKind.Relative)
+            };
+        }
     }
 }

@@ -6,5 +6,6 @@ namespace Handlarn.Domain.Interfaces
     {
         IEnumerable<GroceryList> GetGroceryLists();
         GroceryList GetGroceryList(int id);
+        IEnumerable<GroceryListItem> GetGroceryListItems(int id);
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Handlarn.Domain.Interfaces;
 using Handlarn.Logic.Queries;
@@ -31,7 +28,7 @@ namespace Handlarn.Api.Controllers
         {
             var groceryLists = _groceryListQueries.GetGroceryLists();
 
-            return Ok(groceryLists.Select(g => g.ToContract($"/grocerylists/{g.Id}/items")));
+            return Ok(groceryLists.Select(l => l.ToContract($"/grocerylists/{l.Id}/items")));
         }
 
         [HttpGet("{id}")]
@@ -43,18 +40,12 @@ namespace Handlarn.Api.Controllers
 
         }
 
-        //[HttpGet("{id}/items")]
-        //public IActionResult GetGroceryListItems(int id)
-        //{
-        //    return Ok(new[]{
-        //        new GroceryListItemShallow
-        //        {
-        //            Id = id,
-        //            Name = "Test",
-        //            Count = 1,
-        //            GroceryType = $"/Groceries/1"
-        //        }
-        //    });
-        //}
+        [HttpGet("{id}/items")]
+        public IActionResult GetGroceryListItems(int id)
+        {
+            var items = _groceryListQueries.GetGroceryListItems(id);
+
+            return Ok(items.Select(i => i.ToContract("/groceries")));
+        }
     }
 }

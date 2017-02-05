@@ -16,14 +16,14 @@ namespace Handlarn.Logic.Queries
             _groceryListDataAccess = groceryListDataAccess;
         }
 
-        public IEnumerable<GroceryList> GetGroceryLists(IEnumerable<string> embed)
+        public IEnumerable<GroceryList> GetGroceryLists()
         {
             var groceryLists = _groceryListDataAccess.GetGroceryLists();            
 
             return groceryLists;
         }
 
-        public GroceryList GetGroceryList(int id, IEnumerable<string> embed)
+        public GroceryList GetGroceryList(int id)
         {
             var groceryList = _groceryListDataAccess.GetGroceryList(id);            
 

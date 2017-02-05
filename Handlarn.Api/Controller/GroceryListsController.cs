@@ -27,11 +27,9 @@ namespace Handlarn.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetGroceryLists(string embed)
+        public IActionResult GetGroceryLists()
         {
-            var embeddedKeys = GetEmbeddedKeys(embed);
-
-            var groceryLists = _groceryListQueries.GetGroceryLists(embeddedKeys);
+            var groceryLists = _groceryListQueries.GetGroceryLists();
 
             
 
@@ -39,11 +37,9 @@ namespace Handlarn.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetGroceryList(int id, string embed)
+        public IActionResult GetGroceryList(int id)
         {
-            var embeddedKeys = GetEmbeddedKeys(embed);
-
-            var groceryList = _groceryListQueries.GetGroceryList(id, embeddedKeys);
+            var groceryList = _groceryListQueries.GetGroceryList(id);
 
             return Ok(groceryList);
 
@@ -62,13 +58,5 @@ namespace Handlarn.Api.Controllers
         //        }
         //    });
         //}
-
-        private IEnumerable<string> GetEmbeddedKeys(string embed)
-        {
-            if (string.IsNullOrWhiteSpace(embed))
-                return new string[0];
-
-            return embed.Split(',').Select(k => k.Trim().ToUpperInvariant());
-        }
     }
 }
